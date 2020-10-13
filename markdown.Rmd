@@ -1,0 +1,70 @@
+---
+title: "Monitoramento das Áreas de Risco do Recife"
+author: "Fábio Alves de Freitas"
+date: "11/10/2020"
+bibliography: references.bib
+output: rmdformats::material
+highlight: kate
+df_print: paged
+#code_folding: hide
+css: style.css
+cls: template.csl
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introdução {.tabset}
+
+# Pacotes Requeridos {.tabset}
+
+Os pacotes a seguir são necessários para a execução do código que você verá nesse projeto. Sem eles, o código aqui demonstrado não será executado com sucesso.
+
+```{r import_packages, message=FALSE, warning=FALSE, include=FALSE}
+list.of.packages <- c("kableExtra" ,"viridis", "ggplot2", "rmdformats", "rmarkdown", "dplyr", "tidyr", "readr", "knitr")
+lapply(list.of.packages, require, character.only = TRUE)
+options(knitr.table.format = "html")
+```
+
+```{r echo=FALSE}
+pacotes <- c(
+  "rmarkdown", 
+  "rmdformats", 
+  "knitr", 
+  "kableExtra", 
+  "readr", 
+  "dplyr", 
+  "tidyr", 
+  "ggplot2",
+  "viridis"
+)
+utilizacao <- c(
+  "utilizado na conversão de arquivo em R em diversos formatos",
+  "customização do template gerado pelo rmarkdown",
+  "Geração de tabelas no rmarkdown",
+  "Geração de tabelas no rmarkdown",
+  "Carregamento dos datasets em memória",
+  "Manipulação avançada dos DataFrames",
+  "Manipulação avançada dos DataFrames",
+  "Visualização de gráficos",
+  "Customização da paleta de cores dos gráficos"
+)
+pacotes_descricao <- data.frame(
+  "pacotes"=pacotes,
+  "utilização"=utilizacao
+)
+kable(pacotes_descricao, "html", booktabs = T) %>%
+  kable_styling(position = "center", bootstrap_options = c("responsive", "hover"), full_width = F)
+
+```
+
+# Preparação dos Dados {.tabset}
+
+# Análise Exploratória dos Dados {.tabset}
+
+# Conclusões {.tabset}
+
+# Formatação e Outros Requisitos {.tabset}
+
+# Referências {.tabset}
