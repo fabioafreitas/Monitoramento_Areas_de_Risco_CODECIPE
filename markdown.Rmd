@@ -15,17 +15,70 @@ cls: template.csl
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-# Introdução {.tabset}
-
-# Pacotes Requeridos {.tabset}
-
-Os pacotes a seguir são necessários para a execução do código que você verá nesse projeto. Sem eles, o código aqui demonstrado não será executado com sucesso.
 
 ```{r import_packages, message=FALSE, warning=FALSE, include=FALSE}
 list.of.packages <- c("kableExtra" ,"viridis", "ggplot2", "rmdformats", "rmarkdown", "dplyr", "tidyr", "readr", "knitr")
 lapply(list.of.packages, require, character.only = TRUE)
 options(knitr.table.format = "html")
 ```
+
+
+# Introdução {.tabset}
+
+## Motivação
+
+Com o aumento populacional e a urbanização, muitas cidades em todo o Brasil passaram pelo processo da conurbação @conurbacao, que ocorre quando cidades entram em contato entre si a partir de seu crescimento.
+
+A urbanização da cidade do Recife teve um crescimento acelerado no Século XIX @aspectosRecife. Na década de 1970, a conurbação @conurbacao com os municípios do entorno é incentivada pela implantação de distritos industriais ao longo dos eixos rodoviários arteriais (BR-101, ao norte e ao sul, e BR-252 a oeste) e de grandes conjuntos habitacionais promovidos pelo Banco de Habitação Popular (BNH).
+
+Devido a este processo de metropolização ocorreu um crescimento demográfico elevado. A falta de local adequado para a contrução de novas maradia levou muitas pessoas a povoarem áreas de risco. Estas estão sujeitas a fenônemos como alagamentos e deslizamentos de terra próximo a enconstas, e que se tornam ainda mais comuns em épocas de chuva @videoexplicativo.
+
+É de suma importância a atuação preventiva com relação a ocupação de áreas de risco, cabendo ao município tomar as medidas cabíveis para evitá-las, incluindo utilizar a força policial em casos extremos @cartilhaareasrisco. Além disto, de acordo com a @lei6766, que restringe a aprovação de projetos de loteamento e desmembramento de terrenos sujeitos a alagamentos ou com declive maior que 30%, para desencorajar a ocupação destas áreas.
+
+Ao mesmo tempo, é necessário a tomada de medidas de atenuação. No caso de áreas de risco ocupadas, não se deve partir da premissa de que necessariamente deve haver a realocação. Estas medidas devem ocorrer a partir de estudos técnicos, delegando ao município a tomar decisões que visem o custo-benefício @cartilhaareasrisco @lei12608. Neste cenário, orgãos como o a secretaria-executiva de defesa civil (SEDEC) entram em cena, que desenvolvem ações preventivas com o objetivo de evitar ou minimizar acidentes em situações de calamidades.
+
+## Base de dados
+
+A SEDEC disponibiliza gratuitamente dados do monitoramento de áreas de risco da cidade do Recife @dadossedec. Eles contém registros dos chamados, colocação de lonas e vistorias realizadas pelo cidadão. A partir da análise destes dados, é possível prover relatório de muito úteis para facilitar as tomadas de decisão realizadas pelo município e que podem salvar muitas vidas.
+
+A base de dados é dividida em cinco arquivos do tipo **.csv**. Neles estão contidas as seguintes informações.
+
+```{r echo=FALSE}
+arquivos <- c(
+  "SEDEC Chamados", 
+  "SEDEC Vistorias", 
+  "SEDEC Lonas", 
+  "Solicitações", 
+  "Tipo de Ocorrência dos chamados"
+)
+conteudo <- c(
+  "Chamados para verificação de áreas de risco no recife",
+  "Vistorias realizadas nas possíveis áreas de riscos",
+  "Colocação de lonas em áreas de encostas",
+  "Informações geradas a partir do chamado do cidadão, que podem gerar chamados de colocação de lonas ou vistorias",
+  "Apresenta os tipos de ocorrências relacionados aos chamados realizados pelos cidadãos"
+)
+pacotes_descricao <- data.frame(
+  "Arquivos"=arquivos,
+  "Conteúdo"=conteudo
+)
+kable(pacotes_descricao, "html", booktabs = T) %>%
+  kable_styling(position = "center", bootstrap_options = c("responsive", "hover"), full_width = F)
+```
+
+## Metodologia
+
+
+A metodologia a utilizada foca em combinar as informações relacionadas ao total de ocorrências e as ocorrências vistoriadas, para que seja possível ranquear as áreas de risco do Recife. A base de dados está organizada de acordo com um modelo relacional, sendo possível correlacionais ocorrências específicas entre todas as tabelas. 
+
+## Resultados Esperados
+
+A análise dos dados nesta perspectiva indicará: regiões com mais urgência, levando em consideração épocas do ano; agilizará o trabalho dos profissionais da defesa civil, permitindo-os atender mais localidades; melhorar a cobertura do colocamento de lonas; analisar as regiões mais sucetíveis a gerar chamados à defesa civil.
+
+
+# Pacotes Requeridos {.tabset}
+
+Os pacotes a seguir são necessários para a execução do código que você verá nesse projeto. Sem eles, o código aqui demonstrado não será executado com sucesso.
 
 ```{r echo=FALSE}
 pacotes <- c(

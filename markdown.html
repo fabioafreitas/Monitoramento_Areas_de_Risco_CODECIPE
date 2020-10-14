@@ -1175,6 +1175,81 @@ $(document).ready(function () {
 
 <div id="introdução" class="section level1 tabset">
 <h1>Introdução</h1>
+<div id="motivação" class="section level2">
+<h2>Motivação</h2>
+<p>Com o aumento populacional e a urbanização, muitas cidades em todo o Brasil passaram pelo processo da conurbação <span class="citation">(“Conceito de Conurbação,” n.d.)</span>, que ocorre quando cidades entram em contato entre si a partir de seu crescimento.</p>
+<p>A urbanização da cidade do Recife teve um crescimento acelerado no Século XIX <span class="citation">(“Aspectos urbanísticos e ambientais do Recife,” n.d.)</span>. Na década de 1970, a conurbação <span class="citation">(“Conceito de Conurbação,” n.d.)</span> com os municípios do entorno é incentivada pela implantação de distritos industriais ao longo dos eixos rodoviários arteriais (BR-101, ao norte e ao sul, e BR-252 a oeste) e de grandes conjuntos habitacionais promovidos pelo Banco de Habitação Popular (BNH).</p>
+<p>Devido a este processo de metropolização ocorreu um crescimento demográfico elevado. A falta de local adequado para a contrução de novas maradia levou muitas pessoas a povoarem áreas de risco. Estas estão sujeitas a fenônemos como alagamentos e deslizamentos de terra próximo a enconstas, e que se tornam ainda mais comuns em épocas de chuva <span class="citation">(“Vídeo educativo sobre deslizamentos de terra - Poli / UFRJ,” n.d.)</span>.</p>
+<p>É de suma importância a atuação preventiva com relação a ocupação de áreas de risco, cabendo ao município tomar as medidas cabíveis para evitá-las, incluindo utilizar a força policial em casos extremos <span class="citation">(“Cartilha sobre Áreas de Risco,” n.d.)</span>. Além disto, de acordo com a <span class="citation">(“Lei Nº 6.766, de 19 de dezembro de 1979,” n.d.)</span>, que restringe a aprovação de projetos de loteamento e desmembramento de terrenos sujeitos a alagamentos ou com declive maior que 30%, para desencorajar a ocupação destas áreas.</p>
+<p>Ao mesmo tempo, é necessário a tomada de medidas de atenuação. No caso de áreas de risco ocupadas, não se deve partir da premissa de que necessariamente deve haver a realocação. Estas medidas devem ocorrer a partir de estudos técnicos, delegando ao município a tomar decisões que visem o custo-benefício <span class="citation">(“Cartilha sobre Áreas de Risco,” n.d.)</span> <span class="citation">(“Lei Nº 12.608, de 10 de abril de 2012,” n.d.)</span>. Neste cenário, orgãos como o a secretaria-executiva de defesa civil (SEDEC) entram em cena, que desenvolvem ações preventivas com o objetivo de evitar ou minimizar acidentes em situações de calamidades.</p>
+</div>
+<div id="base-de-dados" class="section level2">
+<h2>Base de dados</h2>
+<p>A SEDEC disponibiliza gratuitamente dados do monitoramento de áreas de risco da cidade do Recife <span class="citation">(“Dados Monitoramento das Áreas de Riscos,” n.d.)</span>. Eles contém registros dos chamados, colocação de lonas e vistorias realizadas pelo cidadão. A partir da análise destes dados, é possível prover relatório de muito úteis para facilitar as tomadas de decisão realizadas pelo município e que podem salvar muitas vidas.</p>
+<p>A base de dados é dividida em cinco arquivos do tipo <strong>.csv</strong>. Neles estão contidas as seguintes informações.</p>
+<table class="table table-responsive table-hover" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+Arquivos
+</th>
+<th style="text-align:left;">
+Conteúdo
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+SEDEC Chamados
+</td>
+<td style="text-align:left;">
+Chamados para verificação de áreas de risco no recife
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SEDEC Vistorias
+</td>
+<td style="text-align:left;">
+Vistorias realizadas nas possíveis áreas de riscos
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+SEDEC Lonas
+</td>
+<td style="text-align:left;">
+Colocação de lonas em áreas de encostas
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Solicitações
+</td>
+<td style="text-align:left;">
+Informações geradas a partir do chamado do cidadão, que podem gerar chamados de colocação de lonas ou vistorias
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tipo de Ocorrência dos chamados
+</td>
+<td style="text-align:left;">
+Apresenta os tipos de ocorrências relacionados aos chamados realizados pelos cidadãos
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="metodologia" class="section level2">
+<h2>Metodologia</h2>
+<p>A metodologia a utilizada foca em combinar as informações relacionadas ao total de ocorrências e as ocorrências vistoriadas, para que seja possível ranquear as áreas de risco do Recife. A base de dados está organizada de acordo com um modelo relacional, sendo possível correlacionais ocorrências específicas entre todas as tabelas.</p>
+</div>
+<div id="resultados-esperados" class="section level2">
+<h2>Resultados Esperados</h2>
+<p>A análise dos dados nesta perspectiva indicará: regiões com mais urgência, levando em consideração épocas do ano; agilizará o trabalho dos profissionais da defesa civil, permitindo-os atender mais localidades; melhorar a cobertura do colocamento de lonas; analisar as regiões mais sucetíveis a gerar chamados à defesa civil.</p>
+</div>
 </div>
 <div id="pacotes-requeridos" class="section level1 tabset">
 <h1>Pacotes Requeridos</h1>
@@ -1278,8 +1353,33 @@ Customização da paleta de cores dos gráficos
 <div id="formatação-e-outros-requisitos" class="section level1 tabset">
 <h1>Formatação e Outros Requisitos</h1>
 </div>
-<div id="referências" class="section level1 tabset">
+<div id="referências" class="section level1 unnumbered tabset">
 <h1>Referências</h1>
+<div id="refs" class="references">
+<div id="ref-aspectosRecife">
+<p>“Aspectos urbanísticos e ambientais do Recife.” n.d. <a href="http://www2.recife.pe.gov.br/servico/aspectos-urbanisticos-e-ambientais-do-recife">http://www2.recife.pe.gov.br/servico/aspectos-urbanisticos-e-ambientais-do-recife</a>.</p>
+</div>
+<div id="ref-cartilhaareasrisco">
+<p>“Cartilha sobre Áreas de Risco.” n.d. <a href="https://urbanismo.mppr.mp.br/arquivos/File/MPSP_CARTLHAAreasDeRisco.pdf">https://urbanismo.mppr.mp.br/arquivos/File/MPSP_CARTLHAAreasDeRisco.pdf</a>.</p>
+</div>
+<div id="ref-conurbacao">
+<p>“Conceito de Conurbação.” n.d. <a href="https://pt.wikipedia.org/wiki/Conurba%C3%A7%C3%A3o">https://pt.wikipedia.org/wiki/Conurba%C3%A7%C3%A3o</a>.</p>
+</div>
+<div id="ref-dadossedec">
+<p>“Dados Monitoramento das Áreas de Riscos.” n.d. <a href="http://dados.recife.pe.gov.br/dataset/monitoramento-das-areas-de-riscos
+">http://dados.recife.pe.gov.br/dataset/monitoramento-das-areas-de-riscos
+</a>.</p>
+</div>
+<div id="ref-lei12608">
+<p>“Lei Nº 12.608, de 10 de abril de 2012.” n.d. <a href="https://www2.camara.leg.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html">https://www2.camara.leg.br/legin/fed/lei/2012/lei-12608-10-abril-2012-612681-publicacaooriginal-135740-pl.html</a>.</p>
+</div>
+<div id="ref-lei6766">
+<p>“Lei Nº 6.766, de 19 de dezembro de 1979.” n.d. <a href="http://www.planalto.gov.br/ccivil_03/leis/l6766.htm">http://www.planalto.gov.br/ccivil_03/leis/l6766.htm</a>.</p>
+</div>
+<div id="ref-videoexplicativo">
+<p>“Vídeo educativo sobre deslizamentos de terra - Poli / UFRJ.” n.d. <a href="https://youtu.be/K9i3JyXocgI">https://youtu.be/K9i3JyXocgI</a>.</p>
+</div>
+</div>
 </div>
 
     </div>
