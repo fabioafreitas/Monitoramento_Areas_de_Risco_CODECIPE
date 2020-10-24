@@ -6,7 +6,7 @@ if(length(new.packages)) install.packages(new.packages)
 
 #Import packages from list
 lapply(list.of.packages, require, character.only = TRUE)
-?kable_styling
+
 ##### DOWNLOAD DO DATASET #####
 
 #Dataset Urls e filenames
@@ -50,7 +50,124 @@ data_lonas <- read_csv2("./dataset/sedec_lonas.csv")
 data_solicitacoes <- read_csv2("./dataset/sedec_solicitacoes.csv")
 data_tipo_ocorrencias <- read_csv2("./dataset/sedec_tipo_ocorrencias.csv")
 
+data_solicitacoes$processo_solicitacao <- as.factor(data_solicitacoes$processo_solicitacao)
+levels(data_solicitacoes$processo_solicitacao)
 
-#a <- as.factor(data_chamados$solicitacao_bairro)
-#a.levels()
-#levels(a)
+
+data_chamados <- data_chamados %>% select(                       
+  "processo_numero",            
+  "solicitacao_data",         
+  "solicitacao_bairro",
+  "solicitacao_vitimas",        
+  "solicitacao_vitimas_fatais",
+  "processo_situacao",          
+  "processo_tipo",
+  "processo_status",            
+  "processo_data_conclusao"
+)
+
+data_chamados$solicitacao_bairro <- as.factor(data_chamados$solicitacao_bairro)
+levels(data_chamados$solicitacao_bairro)
+
+data_chamados$processo_situacao <- as.factor(data_chamados$processo_situacao)
+levels(data_chamados$processo_situacao)
+
+data_chamados$processo_tipo <- as.factor(data_chamados$processo_tipo)
+levels(data_chamados$processo_tipo)
+
+data_chamados$processo_status <- as.factor(data_chamados$processo_status)
+levels(data_chamados$processo_status)[2] <- "CONCLUÍDO"
+levels(data_chamados$processo_status)[4] <- "TRAMITAÇÃO"
+levels(data_chamados$processo_status)[6] <- "TRAMITAÇÃO"
+levels(data_chamados$processo_status)
+
+data_chamados[c(1, 100,300,5000,9000,30000),c(
+  "solicitacao_data", 
+  "solicitacao_bairro",
+  "solicitacao_vitimas",
+  "solicitacao_vitimas_fatais",
+  "processo_status",            
+  "processo_data_conclusao"
+)]
+
+aux_chamados <- read_csv2("./dataset/sedec_chamados.csv", col_types = cols())
+rows_chamados <- colnames(aux_chamados)
+rows_solicitacoes <- colnames(data_solicitacoes)
+data_solicitacoes <- data_solicitacoes %>% select("processo_numero", setdiff(rows_solicitacoes, rows_chamados))
+
+data_chamados <- merge(
+  x=data_chamados,
+  y=data_solicitacoes,
+  by="processo_numero",
+  all=F
+)
+
+#verificar se todos os chamados estão em data vistorias
+
+levels(as.factor(data_chamados$processo_status))
+colnames(data_chamados)
+colnames(data_vistorias)
+
+levels(as.factor(data_tipo_ocorrencias$processo_ocorrencia))
+colnames(data_solicitacoes)
+colnames(data_tipo_ocorrencias)
+colnames(data_lonas)
+##### tipos de solicitações de processos #####
+
+levels(as.factor(data_solicitacoes$processo_solicitacao))
+
+##### todas as vistorias estão contidas em solicitações ? #####
+
+aux <- merge(
+  x=data_vistorias,
+  y=data_solicitacoes,
+  by="processo_numero",
+  all=F
+)
+nrow(aux)
+nrow(data_vistorias)
+
+##### analisando data_chamados #####
+
+aux <- data_chamados %>% select("solicitacao_origem_chamado",             
+                         "solicitacao_vitimas"    ,    
+                         "solicitacao_vitimas_fatais",
+                         "processo_localizacao"  ,    
+                         "processo_status"     ,       
+                         "processo_data_conclusao" ,
+                         "latitude"    ,               
+                         "longitude" )
+
+##### contar numero de chamados por categoria de ocorrencia #####
+
+data_tipo_ocorrencias %>% count(processo_ocorrencia)
+
+##### contar numero de vitimas por categoria de ocorrencia #####
+
+aux <- merge(
+  x=data_chamados,
+  y=data_tipo_ocorrencias,
+  by="processo_numero",
+  all=F
+)
+aux
+##### contar numero de vitimas fatais por categoria de ocorrencia #####
+
+##### dentre os chamados que existem em solicitações, quais sãos os tipos de chamados aplicados? ####
+
+aux <- merge(
+  x=data_chamados,
+  y=data_solicitacoes,
+  by="processo_numero",
+  all=F
+)
+nrow(aux)
+levels(as.factor(
+  aux$processo_solicitacao
+))
+
+
+
+for(i in 1:length(rows_chamados)) {
+  
+}
